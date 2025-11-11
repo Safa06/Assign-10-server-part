@@ -26,6 +26,7 @@ async function run() {
     const db = client.db("assign-10");
     const modelCollection = db.collection("all_habits");
 
+      
     //   Task-1- show latest 6 featured items card
     // latest 6 data
     // get
@@ -34,7 +35,7 @@ async function run() {
     app.get("/all_habits", async (req, res) => {
       const result = await modelCollection
         .find()
-        .sort({ created_at: -1 })
+        .sort({ created_at: "desc" })
         .limit(6)
         .toArray();
 
@@ -43,14 +44,13 @@ async function run() {
     });
 
       
-      // Task-2- take data in public health
-    // 1. find (all/many data),
-    //  2. findOne(particular 1 ta data)
-    app.get("/models", async (req, res) => {
-      const result = await modelCollection.find().toArray();
-      res.send(result);
-    });
-
+      
+      
+      
+      
+      
+      
+      
     // Send a ping to confirm a successful connection
     await client.db("admin").command({ ping: 1 });
     console.log(

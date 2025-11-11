@@ -26,28 +26,21 @@ async function run() {
     const db = client.db("assign-10");
     const modelCollection = db.collection("all_habits");
 
-    //   Task-1- show latest 6 featured items card
-    // latest 6 data
+      
+    //   
+    //    latest 6 data
     // get
     // find
 
-    app.get("/all_habits", async (req, res) => {
+    app.get("/latest-models", async (req, res) => {
       const result = await modelCollection
         .find()
-        .sort({ created_at: -1 })
+        .sort({ created_at: "desc" })
         .limit(6)
         .toArray();
 
       console.log(result);
-      res.send(result);
-    });
 
-      
-      // Task-2- take data in public health
-    // 1. find (all/many data),
-    //  2. findOne(particular 1 ta data)
-    app.get("/models", async (req, res) => {
-      const result = await modelCollection.find().toArray();
       res.send(result);
     });
 

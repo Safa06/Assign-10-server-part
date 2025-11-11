@@ -42,8 +42,6 @@ async function run() {
       res.send(result);
     });
 
-      
-      // Task-2- take data in public health
     // 1. find (all/many data),
     //  2. findOne(particular 1 ta data)
     app.get("/models", async (req, res) => {

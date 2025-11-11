@@ -43,7 +43,7 @@ async function run() {
     });
 
       
-      // Task-2- take data in public health
+      // Task-2- take data in 
     // 1. find (all/many data),
     //  2. findOne(particular 1 ta data)
     app.get("/models", async (req, res) => {
