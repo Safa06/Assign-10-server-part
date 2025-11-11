@@ -35,7 +35,7 @@ async function run() {
     app.get("/6_habits", async (req, res) => {
       const result = await modelCollection
         .find()
-        .sort({ createdAt: -1 })
+        .sort({ created_at: -1 })
         .limit(6)
         .toArray();
 

@@ -26,16 +26,15 @@ async function run() {
     const db = client.db("assign-10");
     const modelCollection = db.collection("all_habits");
 
-      
     //   Task-1- show latest 6 featured items card
     // latest 6 data
     // get
     // find
 
-    app.get("/6_habits", async (req, res) => {
+    app.get("/all_habits", async (req, res) => {
       const result = await modelCollection
         .find()
-        .sort({ createdAt: -1 })
+        .sort({ created_at: -1 })
         .limit(6)
         .toArray();
 
@@ -44,10 +43,10 @@ async function run() {
     });
 
       
-      // Task-2- take data in public health page
+      // Task-2- take data in public health
     // 1. find (all/many data),
     //  2. findOne(particular 1 ta data)
-    app.get("/all_habits", async (req, res) => {
+    app.get("/models", async (req, res) => {
       const result = await modelCollection.find().toArray();
       res.send(result);
     });
