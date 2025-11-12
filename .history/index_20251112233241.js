@@ -70,7 +70,7 @@ async function run() {
 
     //PUT
 
-    app.put("/update-habit/:id", async (req, res) => {
+    app.put("/update/:id", async (req, res) => {
       const { id } = req.params;
       const data = req.body;
       // console.log(id)

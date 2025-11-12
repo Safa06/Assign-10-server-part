@@ -64,13 +64,13 @@ async function run() {
       });
     });
 
-    //Task - 4: to update data in mongoDB, ways are 2 -
+    //Task - to update data in mongoDB, ways are 2 -
     //1. updateOne
     // 2. updateMany
 
     //PUT
 
-    app.put("/update-habit/:id", async (req, res) => {
+    app.put("/models/:id", async (req, res) => {
       const { id } = req.params;
       const data = req.body;
       // console.log(id)

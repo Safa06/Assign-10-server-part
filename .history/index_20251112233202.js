@@ -50,6 +50,8 @@ async function run() {
       res.send(result);
     });
 
+
+
     // Task - 3 : mongoDBte data pathanor way/post method 2 ta-
     //  1. insertOne - one data sent
     //  2. insertMany - many data sent
@@ -58,31 +60,6 @@ async function run() {
       const data = req.body;
       // console.log(data)
       const result = await modelCollection.insertOne(data);
-      res.send({
-        success: true,
-        result,
-      });
-    });
-
-    //Task - 4: to update data in mongoDB, ways are 2 -
-    //1. updateOne
-    // 2. updateMany
-
-    //PUT
-
-    app.put("/update-habit/:id", async (req, res) => {
-      const { id } = req.params;
-      const data = req.body;
-      // console.log(id)
-      // console.log(data)
-      const objectId = new ObjectId(id);
-      const filter = { _id: objectId };
-      const update = {
-        $set: data,
-      };
-
-      const result = await modelCollection.updateOne(filter, update);
-
       res.send({
         success: true,
         result,

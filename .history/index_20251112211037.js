@@ -26,6 +26,7 @@ async function run() {
     const db = client.db("assign-10");
     const modelCollection = db.collection("all_habits");
 
+      
     //   Task-1- show latest 6 featured items card
     // latest 6 data
     // get
@@ -42,7 +43,8 @@ async function run() {
       res.send(result);
     });
 
-    // Task-2- take data in public health page
+      
+      // Task-2- take data in public health page
     // 1. find (all/many data),
     //  2. findOne(particular 1 ta data)
     app.get("/all_habits", async (req, res) => {
@@ -50,45 +52,18 @@ async function run() {
       res.send(result);
     });
 
-    // Task - 3 : mongoDBte data pathanor way/post method 2 ta-
-    //  1. insertOne - one data sent
-    //  2. insertMany - many data sent
 
-    app.post("/all_habits", async (req, res) => {
-      const data = req.body;
-      // console.log(data)
-      const result = await modelCollection.insertOne(data);
-      res.send({
-        success: true,
-        result,
-      });
-    });
 
-    //Task - 4: to update data in mongoDB, ways are 2 -
-    //1. updateOne
-    // 2. updateMany
-
-    //PUT
-
-    app.put("/update-habit/:id", async (req, res) => {
-      const { id } = req.params;
-      const data = req.body;
-      // console.log(id)
-      // console.log(data)
-      const objectId = new ObjectId(id);
-      const filter = { _id: objectId };
-      const update = {
-        $set: data,
-      };
-
-      const result = await modelCollection.updateOne(filter, update);
-
-      res.send({
-        success: true,
-        result,
-      });
-    });
-
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
     // Send a ping to confirm a successful connection
     await client.db("admin").command({ ping: 1 });
     console.log(
